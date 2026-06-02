@@ -6,7 +6,7 @@
 // In production this would pull from your backend/Formspree analytics.
 // For now: starting display numbers + localStorage increments on each signup.
 const STORAGE_KEY = 'scholarfund_signups';
-const STARTING = { student: 12, parent: 8, investor: 15 };
+const STARTING = { student: 0, parent: 0, investor: 0 };
 
 function getCounts() {
   const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
