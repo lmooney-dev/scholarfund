@@ -34,6 +34,11 @@ function incrementCounter(type) {
   updateCounters();
 }
 
+function resetCounters() {
+  localStorage.removeItem(STORAGE_KEY);
+  updateCounters();
+}
+
 // ===== MODAL =====
 const MODAL_CONTENT = {
   student: {
@@ -186,21 +191,21 @@ document.getElementById('gpa-inv').addEventListener('input', updateInvestorCalc)
 // ===== FAQ =====
 const FAQS = [
   { cat: 'For Parents', q: "Can I just invest directly in my own kid's loan?",
-    a: "Yes, absolutely. Parents can fund up to 100% of their child's loan offering. You become their lender at a great rate — no bank taking a cut. And you earn back the interest, so it's not charity." },
+    a: "Yes, absolutely. Parents can fund up to 100% of their child's loan offering. You become their lender at a great rate — no bank taking a cut. And you earn back the interest, so it's not [...]
   { cat: 'For Parents', q: 'How is this different from a Parent PLUS loan?',
-    a: "Parent PLUS charges ~9% plus a 4.2% fee upfront, and you're personally on the hook for repayment no matter what. With ScholarFund, your kid holds their own loan (zero liability to you), starts at a lower rate, and you choose whether to invest. Just a better deal." },
+    a: "Parent PLUS charges ~9% plus a 4.2% fee upfront, and you're personally on the hook for repayment no matter what. With ScholarFund, your kid holds their own loan (zero liability to you), s[...]
   { cat: 'For Students', q: 'Who actually gets to see my GPA?',
-    a: "Only verified investors who've funded your loan see your GPA updates each semester. Your full name and contact info stay private. Grades come straight from your university — you don't have to submit anything yourself." },
+    a: "Only verified investors who've funded your loan see your GPA updates each semester. Your full name and contact info stay private. Grades come straight from your university — you don't h[...]
   { cat: 'For Students', q: 'What if I bomb a semester?',
-    a: "Your rate might nudge up slightly based on the schedule — but it'll never go above the cap you agreed to at the start. And if something serious happens (illness, family stuff, real hardship), we have deferral options. Life happens." },
+    a: "Your rate might nudge up slightly based on the schedule — but it'll never go above the cap you agreed to at the start. And if something serious happens (illness, family stuff, real hard[...]
   { cat: 'For Investors', q: 'What if the student just stops paying?',
-    a: "Every loan has a 3% reserve fund set aside as a first line of protection. If defaults go beyond that, losses are shared proportionally across everyone who invested in that loan. We're building in a 3–5% default rate based on GPA tiers — it's already priced into the returns." },
+    a: "Every loan has a 3% reserve fund set aside as a first line of protection. If defaults go beyond that, losses are shared proportionally across everyone who invested in that loan. We're bui[...]
   { cat: 'For Investors', q: 'Wait, is this actually legal?',
-    a: "Yes — we operate under SEC Regulation Crowdfunding (Reg CF) on the investor side and through a licensed sponsor bank for loan origination. Full disclosures and risk statements before you put in a cent. We're doing this by the book." },
+    a: "Yes — we operate under SEC Regulation Crowdfunding (Reg CF) on the investor side and through a licensed sponsor bank for loan origination. Full disclosures and risk statements before yo[...]
   { cat: 'For Investors', q: 'When do I actually get my money back?',
-    a: "Interest payments start once the student begins repayment after graduation. After 12 months you can sell your position on our secondary market if you need liquidity sooner. Full principal over the loan term — typically 10 years." },
+    a: "Interest payments start once the student begins repayment after graduation. After 12 months you can sell your position on our secondary market if you need liquidity sooner. Full principal[...]
   { cat: 'Our story', q: 'Why is someone building this?',
-    a: "Our founder has been carrying over $150,000 in student debt for two decades. He'll still be paying when his own kids apply to college. That shouldn't be normal — and it doesn't have to be for the next generation." },
+    a: "Our founder has been carrying over $150,000 in student debt for two decades. He'll still be paying when his own kids apply to college. That shouldn't be normal — and it doesn't have to [...]
 ];
 
 function renderFAQs() {
