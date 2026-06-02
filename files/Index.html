@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ScholarFund — Your tuition, funded by real people</title>
+<meta name="description" content="Crowdfund your college education from everyday people. Lower rates for students. Real returns for investors.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <div class="logo">
+      <div class="logo-icon"><i data-lucide="graduation-cap"></i></div>
+      <span>ScholarFund</span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-glow-1"></div>
+  <div class="hero-bg-glow-2"></div>
+  <div class="container hero-inner">
+    <div class="badge">
+      <span class="badge-dot"></span>
+      Coming soon — and honestly, it's about time
+    </div>
+    <h1 class="hero-title">
+      Your tuition,<br>
+      <span class="gradient-text">funded by real people.</span>
+    </h1>
+    <p class="hero-subtitle">
+      Students get lower rates when they do well. Investors actually earn something. Parents can finally help without cosigning a nightmare loan. No banks taking a cut in the middle.
+    </p>
+    <div class="hero-buttons">
+      <button class="btn btn-white" onclick="openModal('student')">
+        <i data-lucide="graduation-cap" class="btn-icon"></i> I'm a student <span class="arrow">→</span>
+      </button>
+      <button class="btn btn-amber" onclick="openModal('parent')">
+        <i data-lucide="heart-handshake" class="btn-icon"></i> I'm a parent <span class="arrow">→</span>
+      </button>
+      <button class="btn btn-cyan" onclick="openModal('investor')">
+        <i data-lucide="trending-up" class="btn-icon"></i> I want to back a student <span class="arrow">→</span>
+      </button>
+    </div>
+
+    <!-- Counter -->
+    <div class="counter">
+      <div class="counter-item">
+        <div class="counter-num white" id="total-count">—</div>
+        <div class="counter-label">On waitlist</div>
+      </div>
+      <div class="counter-divider"></div>
+      <div class="counter-item">
+        <div class="counter-num cyan" id="student-count">—</div>
+        <div class="counter-label">Students</div>
+      </div>
+      <div class="counter-divider"></div>
+      <div class="counter-item">
+        <div class="counter-num amber" id="parent-count">—</div>
+        <div class="counter-label">Parents</div>
+      </div>
+      <div class="counter-divider"></div>
+      <div class="counter-item">
+        <div class="counter-num cyan" id="investor-count">—</div>
+        <div class="counter-label">Investors</div>
+      </div>
+    </div>
+
+    <div class="trust-badges">
+      <span><i data-lucide="shield" class="trust-icon"></i> FDIC sponsor bank</span>
+      <span><i data-lucide="file-check" class="trust-icon"></i> SEC Reg CF compliant</span>
+      <span><i data-lucide="lock" class="trust-icon"></i> Bank-grade encryption</span>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="section bg-white">
+  <div class="container narrow">
+    <div class="section-header">
+      <p class="eyebrow">The interest gap</p>
+      <h2 class="section-title">Same loan. Wildly different price tag.</h2>
+      <p class="section-subtitle">
+        Here's what your family pays in interest on a $15,000 loan over 10 years. Brace yourself.
+      </p>
+    </div>
+
+    <div class="comparison-grid">
+      <div class="comp-card comp-card-red">
+        <div class="comp-card-header">
+          <div>
+            <p class="comp-name">Parent PLUS</p>
+            <p class="comp-meta">9.08% + 4.2% fee</p>
+          </div>
+          <span class="comp-badge comp-badge-red">Worst deal</span>
+        </div>
+        <div class="comp-card-body">
+          <p class="comp-label">Interest paid</p>
+          <p class="comp-amount">$8,400</p>
+        </div>
+      </div>
+
+      <div class="comp-card comp-card-orange">
+        <div class="comp-card-header">
+          <div>
+            <p class="comp-name">Private Loan</p>
+            <p class="comp-meta">11.5% · co-signer</p>
+          </div>
+          <span class="comp-badge comp-badge-orange">Pricey</span>
+        </div>
+        <div class="comp-card-body">
+          <p class="comp-label">Interest paid</p>
+          <p class="comp-amount">$4,800</p>
+        </div>
+      </div>
+
+      <div class="comp-card comp-card-hero">
+        <div class="comp-card-star">★ ScholarFund</div>
+        <div class="comp-card-header">
+          <div>
+            <p class="comp-name comp-name-white">3.5+ GPA</p>
+            <p class="comp-meta comp-meta-light">6.0% · no co-signer</p>
+          </div>
+          <span class="comp-badge comp-badge-cyan">Best deal</span>
+        </div>
+        <div class="comp-card-body comp-card-body-dark">
+          <p class="comp-label comp-label-cyan">Interest paid</p>
+          <p class="comp-amount comp-amount-cyan">$2,400</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="savings-callout">
+      <p>You save up to <strong>$6,000</strong> with ScholarFund.</p>
+      <p class="savings-sub">That's interest going to real people who backed you — not a bank's profit margin.</p>
+    </div>
+
+    <p class="disclaimer">Illustrative comparison. Actual rates vary by GPA. ScholarFund rates can adjust based on academic performance.</p>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">Run the numbers</p>
+      <h2 class="section-title">See what you'd actually pay — or earn.</h2>
+      <p class="section-subtitle">Drag the sliders. The numbers update instantly. No email required.</p>
+    </div>
+
+    <div class="calc-toggle">
+      <button class="calc-toggle-btn active" data-mode="student" onclick="setCalcMode('student')">I'm a student</button>
+      <button class="calc-toggle-btn" data-mode="investor" onclick="setCalcMode('investor')">I'm an investor</button>
+    </div>
+
+    <!-- Student calculator -->
+    <div class="calc-grid" id="calc-student">
+      <div class="calc-inputs">
+        <h3>Tell us about your situation</h3>
+        <div class="slider-group">
+          <div class="slider-label">
+            <label>How much do you need?</label>
+            <span id="loan-amount-display">$15,000</span>
+          </div>
+          <input type="range" id="loan-amount" min="5000" max="50000" step="1000" value="15000">
+          <div class="slider-range"><span>$5K</span><span>$50K</span></div>
+        </div>
+        <div class="slider-group">
+          <div class="slider-label">
+            <label>What's your GPA right now?</label>
+            <span id="gpa-display">3.5</span>
+          </div>
+          <input type="range" id="gpa" min="2.0" max="4.0" step="0.1" value="3.5">
+          <div class="slider-range"><span>2.0</span><span>4.0</span></div>
+        </div>
+      </div>
+      <div class="calc-result calc-result-dark">
+        <p class="result-eyebrow">Your rate with ScholarFund</p>
+        <p class="result-big" id="student-rate">6.0%</p>
+        <p class="result-context">A typical private loan charges 11.5%. That's a big difference.</p>
+        <div class="result-stats">
+          <div class="result-stat-row">
+            <span>You'd save each month</span>
+            <strong id="monthly-savings">$69</strong>
+          </div>
+          <div class="result-stat-row">
+            <span>Total savings over 10 years</span>
+            <strong id="total-savings">$8,250</strong>
+          </div>
+        </div>
+        <button class="btn btn-white btn-full" onclick="openModal('student')">
+          Yeah, I want in <span class="arrow">→</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Investor calculator -->
+    <div class="calc-grid hidden" id="calc-investor">
+      <div class="calc-inputs">
+        <h3>Tell us about your investment</h3>
+        <div class="slider-group">
+          <div class="slider-label">
+            <label>How much would you invest?</label>
+            <span id="invest-amount-display">$1,000</span>
+          </div>
+          <input type="range" id="invest-amount" min="100" max="10000" step="100" value="1000">
+          <div class="slider-range"><span>$100</span><span>$10K</span></div>
+        </div>
+        <div class="slider-group">
+          <div class="slider-label">
+            <label>Student's GPA</label>
+            <span id="gpa-inv-display">3.5</span>
+          </div>
+          <input type="range" id="gpa-inv" min="2.0" max="4.0" step="0.1" value="3.5">
+          <div class="slider-range"><span>2.0</span><span>4.0</span></div>
+        </div>
+      </div>
+      <div class="calc-result calc-result-cyan">
+        <p class="result-eyebrow result-eyebrow-dark">You'd earn</p>
+        <p class="result-big" id="investor-return">6.5%</p>
+        <p class="result-context result-context-dark">Gets better when the student gets better grades</p>
+        <div class="result-stats result-stats-dark">
+          <div class="result-stat-row">
+            <span>Back in your pocket per year</span>
+            <strong id="annual-return">+$65</strong>
+          </div>
+          <div class="result-stat-row">
+            <span>After 5 years</span>
+            <strong id="five-yr-return">+$325</strong>
+          </div>
+        </div>
+        <button class="btn btn-dark btn-full" onclick="openModal('investor')">
+          Count me in <span class="arrow">→</span>
+        </button>
+        <p class="result-disclaimer">Variable returns. 3% reserve fund. Not a registered offering yet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="section bg-light">
+  <div class="container narrow">
+    <div class="section-header">
+      <p class="eyebrow">Real talk</p>
+      <h2 class="section-title">Student loans are a mess. Here's why we're fixing them.</h2>
+    </div>
+    <div class="problem-grid">
+      <div class="stat-card">
+        <div class="stat-num">$1.81T</div>
+        <div class="stat-label">In US student debt</div>
+        <div class="stat-sub">42 million people stuck paying off loans they took out as teenagers</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">7–12%</div>
+        <div class="stat-label">Typical loan rates</div>
+        <div class="stat-sub">The same rate no matter how hard you work or how well you do</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">$0</div>
+        <div class="stat-label">Ways to directly invest</div>
+        <div class="stat-sub">Everyday people can't just back a student they believe in — until now</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section bg-white">
+  <div class="container narrow">
+    <div class="section-header">
+      <p class="eyebrow">How it works</p>
+      <h2 class="section-title">Three steps. Pretty simple, actually.</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-icon"><i data-lucide="graduation-cap"></i></div>
+        <h3>Students put themselves out there</h3>
+        <p>Share your GPA history, major, school, and how much you need. Your university verifies the grades directly — no faking it.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-icon"><i data-lucide="users"></i></div>
+        <h3>Real people chip in</h3>
+        <p>Parents, alumni, and everyday investors back your loan starting at $100 each. Think of it like crowdfunding, but you pay it back.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-icon"><i data-lucide="bar-chart-3"></i></div>
+        <h3>Good grades pay off — literally</h3>
+        <p>Keep your GPA up and your rate goes down. Slack off and it nudges up a bit. Never above your original cap though — promise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MICRO-REWARDS -->
+<section class="section bg-dark">
+  <div class="dark-bg-glow-1"></div>
+  <div class="dark-bg-glow-2"></div>
+  <div class="container narrow dark-content">
+    <div class="section-header">
+      <p class="eyebrow eyebrow-cyan">For investors</p>
+      <h2 class="section-title section-title-white">
+        Forget the 4-year wait.<br>
+        <span class="text-cyan">Returns start day one.</span>
+      </h2>
+      <p class="section-subtitle section-subtitle-light">
+        Most lending platforms make you wait years before you see a dime. We built ScholarFund so something lands in your account from the moment you fund a student.
+      </p>
+    </div>
+
+    <div class="micro-grid">
+      <div>
+        <h3 class="micro-heading">Five ways you earn — constantly:</h3>
+        <div class="micro-list">
+          <div class="micro-item">
+            <div class="micro-num">1</div>
+            <div>
+              <h4>Day 1 origination bonus</h4>
+              <p>1% cashback the moment the loan closes. You earn before the student even enrolls.</p>
+            </div>
+          </div>
+          <div class="micro-item">
+            <div class="micro-num">2</div>
+            <div>
+              <h4>Monthly interest drip</h4>
+              <p>Real money in your account every month — not at the end. Watch it tick up.</p>
+            </div>
+          </div>
+          <div class="micro-item">
+            <div class="micro-num">3</div>
+            <div>
+              <h4>Semester payouts</h4>
+              <p>Grades post → your return updates → cash deposited. Twice a year, like clockwork.</p>
+            </div>
+          </div>
+          <div class="micro-item">
+            <div class="micro-num">4</div>
+            <div>
+              <h4>Achievement bonuses</h4>
+              <p>Dean's list, on-time graduation, early repayment — small bonuses when your student wins.</p>
+            </div>
+          </div>
+          <div class="micro-item">
+            <div class="micro-num">5</div>
+            <div>
+              <h4>Need out early? Sell at month 12</h4>
+              <p>Secondary market lets you cash out your position. High-GPA stakes often sell at a premium.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feed-card">
+        <div class="feed-header">
+          <p>Your activity feed</p>
+          <div class="feed-live"><span class="pulse"></span>Live</div>
+        </div>
+        <div class="feed-items">
+          <div class="feed-item feed-item-green">
+            <div class="feed-icon"><i data-lucide="graduation-cap"></i></div>
+            <div class="feed-body">
+              <p class="feed-title">Maya C. finished spring semester</p>
+              <p class="feed-meta">GPA: 3.9 · Your rate: 8%</p>
+            </div>
+            <p class="feed-amount feed-amount-green">+$22.40</p>
+          </div>
+          <div class="feed-item feed-item-amber">
+            <div class="feed-icon"><i data-lucide="award"></i></div>
+            <div class="feed-body">
+              <p class="feed-title">Priya P. made Dean's List</p>
+              <p class="feed-meta">Bonus deposited</p>
+            </div>
+            <p class="feed-amount feed-amount-amber">+$2.50</p>
+          </div>
+          <div class="feed-item feed-item-cyan">
+            <div class="feed-icon"><i data-lucide="dollar-sign"></i></div>
+            <div class="feed-body">
+              <p class="feed-title">Monthly interest deposit</p>
+              <p class="feed-meta">3 students contributing</p>
+            </div>
+            <p class="feed-amount feed-amount-cyan">+$5.83</p>
+          </div>
+          <div class="feed-item">
+            <div class="feed-icon"><i data-lucide="book-open"></i></div>
+            <div class="feed-body">
+              <p class="feed-title">Jordan E. enrolled for fall</p>
+              <p class="feed-meta">Verified ✓</p>
+            </div>
+            <p class="feed-time">Just now</p>
+          </div>
+          <div class="feed-item">
+            <div class="feed-icon"><i data-lucide="zap"></i></div>
+            <div class="feed-body">
+              <p class="feed-title">New listing: Alex K.</p>
+              <p class="feed-meta">UMich · CS · 3.7 GPA</p>
+            </div>
+            <a class="feed-action">Back →</a>
+          </div>
+        </div>
+        <p class="feed-disclaimer">Sample feed — real notifications will look like this</p>
+      </div>
+    </div>
+
+    <div class="center-cta">
+      <button class="btn btn-cyan" onclick="openModal('investor')">
+        I want notifications like these <span class="arrow">→</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- STUDENT REWARDS -->
+<section class="section bg-white">
+  <div class="container narrow">
+    <div class="section-header">
+      <div class="pill pill-cyan"><i data-lucide="graduation-cap" class="pill-icon"></i> For students</div>
+      <h2 class="section-title">Your hard work pays <span class="text-cyan-dark">literally</span>.</h2>
+      <p class="section-subtitle">
+        Lower rates are just the start. Hit milestones, ace semesters, build good habits — and we knock real money off what you owe.
+      </p>
+    </div>
+
+    <div class="rewards-grid">
+      <div>
+        <h3>Ways to earn credit toward your loan:</h3>
+        <div class="rewards-list">
+          <div class="reward-item">
+            <div class="reward-icon"><i data-lucide="target"></i></div>
+            <div class="reward-body">
+              <div class="reward-header">
+                <h4>High GPA cashback</h4>
+                <span class="reward-badge">Up to $150/sem</span>
+              </div>
+              <p>3.7+ GPA earns $100 toward your principal. Dean's List adds another $50.</p>
+            </div>
+          </div>
+          <div class="reward-item">
+            <div class="reward-icon"><i data-lucide="graduation-cap"></i></div>
+            <div class="reward-body">
+              <div class="reward-header">
+                <h4>Graduate on time</h4>
+                <span class="reward-badge">$500 credit</span>
+              </div>
+              <p>Finish your degree on schedule and we shave $500 right off your balance.</p>
+            </div>
+          </div>
+          <div class="reward-item">
+            <div class="reward-icon"><i data-lucide="zap"></i></div>
+            <div class="reward-body">
+              <div class="reward-header">
+                <h4>Auto-pay rate cut</h4>
+                <span class="reward-badge">-0.25%</span>
+              </div>
+              <p>Set up auto-pay and your rate drops a quarter point. Forever.</p>
+            </div>
+          </div>
+          <div class="reward-item">
+            <div class="reward-icon"><i data-lucide="briefcase"></i></div>
+            <div class="reward-body">
+              <div class="reward-header">
+                <h4>First job buffer</h4>
+                <span class="reward-badge">1 mo deferral</span>
+              </div>
+              <p>Just landed your first job? Take an extra month to get on your feet.</p>
+            </div>
+          </div>
+          <div class="reward-item">
+            <div class="reward-icon"><i data-lucide="handshake"></i></div>
+            <div class="reward-body">
+              <div class="reward-header">
+                <h4>Refer another student</h4>
+                <span class="reward-badge">$100 credit</span>
+              </div>
+              <p>Friend gets funded through ScholarFund? You both get $100 off your loan.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <p class="example-eyebrow">A real example</p>
+        <h3 class="example-title">Meet Maya. CS major. 3.8 GPA.</h3>
+        <p class="example-sub">Here's what she'd earn over 4 years:</p>
+        <div class="example-rows">
+          <div class="example-row">
+            <div>
+              <p class="example-row-title">8 semesters of high GPA cashback</p>
+              <p class="example-row-meta">$100 × 8 semesters</p>
+            </div>
+            <p class="example-amt">$800</p>
+          </div>
+          <div class="example-row">
+            <div>
+              <p class="example-row-title">Dean's List bonuses (×4)</p>
+              <p class="example-row-meta">$50 × 4 semesters</p>
+            </div>
+            <p class="example-amt">$200</p>
+          </div>
+          <div class="example-row">
+            <div>
+              <p class="example-row-title">Graduated on time</p>
+              <p class="example-row-meta">One-time credit</p>
+            </div>
+            <p class="example-amt">$500</p>
+          </div>
+          <div class="example-row">
+            <div>
+              <p class="example-row-title">Referred 2 friends</p>
+              <p class="example-row-meta">$100 × 2 referrals</p>
+            </div>
+            <p class="example-amt">$200</p>
+          </div>
+          <div class="example-row">
+            <div>
+              <p class="example-row-title">Auto-pay enrolled</p>
+              <p class="example-row-meta">-0.25% rate for life</p>
+            </div>
+            <p class="example-amt">~$450 saved</p>
+          </div>
+        </div>
+        <div class="example-total">
+          <p class="example-total-label">Total knocked off her loan</p>
+          <p class="example-total-amt">$2,150</p>
+          <p class="example-total-note">All for doing what she was already doing — being a good student.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="center-cta">
+      <button class="btn btn-dark" onclick="openModal('student')">
+        I'm a student — count me in <span class="arrow">→</span>
+      </button>
+      <p class="cta-fine-print">No fine print games. Earn it, get it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PARENT SECTION -->
+<section class="section bg-white">
+  <div class="container narrow">
+    <div class="section-header">
+      <div class="pill pill-amber"><i data-lucide="heart-handshake" class="pill-icon"></i> For Parents & Guardians</div>
+      <h2 class="section-title">Help your kid without signing away your credit score.</h2>
+      <p class="section-subtitle">
+        Cosigning a private loan puts your credit on the line for the next decade. ScholarFund lets you support your child — or any student you believe in — without that baggage. And if you want to invest, you actually earn something back.
+      </p>
+    </div>
+
+    <div class="parent-grid">
+      <div class="parent-card">
+        <div class="parent-icon"><i data-lucide="heart"></i></div>
+        <h4>Be your kid's lender (not the bank)</h4>
+        <p>Invest directly in your child's loan at a great rate. You're the one backing them — and you earn back the interest too.</p>
+      </div>
+      <div class="parent-card">
+        <div class="parent-icon"><i data-lucide="users"></i></div>
+        <h4>Pay it forward to another student</h4>
+        <p>Back a student from your old school, your hometown, your industry. Real returns, real impact.</p>
+      </div>
+      <div class="parent-card">
+        <div class="parent-icon"><i data-lucide="shield"></i></div>
+        <h4>No personal liability — seriously</h4>
+        <p>Your kid holds their own loan. Your credit isn't on the hook. You just get to help.</p>
+      </div>
+      <div class="parent-card">
+        <div class="parent-icon"><i data-lucide="bar-chart-3"></i></div>
+        <h4>Blows Parent PLUS out of the water</h4>
+        <p>Parent PLUS charges ~9% plus a 4% fee upfront. ScholarFund students start at 5–6% with no origination fee. Do the math.</p>
+      </div>
+    </div>
+
+    <div class="center-cta">
+      <button class="btn btn-amber" onclick="openModal('parent')">
+        Get on the parent list <span class="arrow">→</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- UNIVERSITY SECTION -->
+<section class="section bg-light">
+  <div class="container narrow">
+    <div class="section-header">
+      <div class="pill pill-violet"><i data-lucide="award" class="pill-icon"></i> For Schools & Universities</div>
+      <h2 class="section-title">Want to bring ScholarFund to your campus?</h2>
+      <p class="section-subtitle">
+        We're talking to financial aid offices, admissions teams, and student services leaders who want to give their students a real alternative to private loans — without any extra work landing on your desk.
+      </p>
+    </div>
+
+    <div class="problem-grid">
+      <div class="stat-card stat-card-violet">
+        <div class="stat-icon-circle"><i data-lucide="trending-up"></i></div>
+        <h3>More students say yes</h3>
+        <p>When financing is less scary, more admitted students actually enroll. Better options close the gap for families on the fence.</p>
+      </div>
+      <div class="stat-card stat-card-violet">
+        <div class="stat-icon-circle"><i data-lucide="shield"></i></div>
+        <h3>Your students pay way less</h3>
+        <p>ScholarFund students typically pay 30–50% less in interest over the life of the loan compared to typical private options.</p>
+      </div>
+      <div class="stat-card stat-card-violet">
+        <div class="stat-icon-circle"><i data-lucide="bar-chart-3"></i></div>
+        <h3>Nothing new to manage</h3>
+        <p>Grade verification goes through National Student Clearinghouse automatically. No new software, no new processes, no headaches.</p>
+      </div>
+    </div>
+
+    <div class="center-cta">
+      <button class="btn btn-violet" onclick="openModal('university')">
+        Send my info <span class="arrow">→</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section bg-white">
+  <div class="container narrow">
+    <div class="section-header">
+      <p class="eyebrow">Good questions</p>
+      <h2 class="section-title">We figured you'd want to know this stuff.</h2>
+    </div>
+    <div class="faq-list" id="faq-list"></div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section bg-dark center-section">
+  <div class="container narrow dark-content">
+    <h2 class="section-title section-title-white">Get on the list. It's free and takes 30 seconds.</h2>
+    <p class="section-subtitle section-subtitle-light">
+      Early members get first access, locked-in rates, and updates straight from the founder. No spam, ever.
+    </p>
+    <div class="hero-buttons center-cta">
+      <button class="btn btn-white" onclick="openModal('student')"><i data-lucide="graduation-cap" class="btn-icon"></i> I'm a student <span class="arrow">→</span></button>
+      <button class="btn btn-amber" onclick="openModal('parent')"><i data-lucide="heart-handshake" class="btn-icon"></i> I'm a parent <span class="arrow">→</span></button>
+      <button class="btn btn-cyan" onclick="openModal('investor')"><i data-lucide="trending-up" class="btn-icon"></i> I want to back a student <span class="arrow">→</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="logo footer-logo">
+      <div class="logo-icon"><i data-lucide="graduation-cap"></i></div>
+      <span>ScholarFund</span>
+    </div>
+    <p class="footer-disclaimer">
+      © 2026 ScholarFund. Pre-launch. Not yet a registered securities offering. All rate examples are illustrative only and subject to change. Information on this site does not constitute an offer to sell or solicitation to buy any security.
+    </p>
+  </div>
+</footer>
+
+<!-- SIGNUP MODAL -->
+<div class="modal-overlay hidden" id="modal" onclick="closeModalOnBg(event)">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="modal-form-view">
+      <div class="modal-icon" id="modal-icon"><i data-lucide="graduation-cap"></i></div>
+      <h3 class="modal-title" id="modal-title">You're almost in</h3>
+      <p class="modal-subtitle" id="modal-subtitle">Drop your details and you'll hear from us when we launch.</p>
+      <!-- Formspree form — replace YOUR_FORM_ID with your actual ID -->
+      <form id="signup-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="hidden" name="signup_type" id="signup-type">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Email address" required>
+        <input type="text" name="context" id="signup-context" placeholder="School & major (optional)">
+        <input type="hidden" name="_subject" value="New ScholarFund waitlist signup">
+        <input type="hidden" name="_gotcha" style="display:none">
+        <button type="submit" class="btn btn-dark btn-full">
+          I'm in — add me to the list <span class="arrow">→</span>
+        </button>
+        <p class="modal-fine-print">No spam. Only ScholarFund updates.</p>
+      </form>
+    </div>
+    <div class="modal-success hidden" id="modal-success">
+      <div class="success-check">✓</div>
+      <h3>You're on the list! 🎉</h3>
+      <p>We'll be in touch.</p>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
