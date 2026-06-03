@@ -73,7 +73,6 @@ function openModal(type) {
   document.getElementById('modal-title').textContent = content.title;
   document.getElementById('modal-subtitle').textContent = content.subtitle;
   document.getElementById('signup-context').placeholder = content.contextPlaceholder;
-  document.getElementById('signup-type').value = type;
 
   document.getElementById('modal-form-view').classList.remove('hidden');
   document.getElementById('modal-success').classList.add('hidden');
@@ -97,34 +96,21 @@ function closeModalOnBg(e) {
 }
 
 // ===== FORM SUBMISSION (Formsubmit) =====
-document.getElementById('signup-form').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const form = e.target;
+// Remove preventDefault to allow Formsubmit to handle the native form submission
+document.getElementById('signup-form').addEventListener('submit', function(e) {
   const type = document.getElementById('signup-type').value;
-  const formData = new FormData(form);
-
-  try {
-    const response = await fetch(form.action, {
-      method: 'POST',
-      body: formData
-    });
-
-    if (response.ok) {
-      // Show success state
-      document.getElementById('modal-form-view').classList.add('hidden');
-      document.getElementById('modal-success').classList.remove('hidden');
-      incrementCounter(type);
-      setTimeout(closeModal, 2500);
-    } else {
-      alert('Something went wrong. Please try again.');
-    }
-  } catch (err) {
-    // Formsubmit fallback: even if fetch fails, treat as success
-    document.getElementById('modal-form-view').classList.add('hidden');
-    document.getElementById('modal-success').classList.remove('hidden');
-    incrementCounter(type);
-    setTimeout(closeModal, 2500);
-  }
+  
+  // Increment counter immediately on submit
+  incrementCounter(type);
+  
+  // Show success state
+  document.getElementById('modal-form-view').classList.add('hidden');
+  document.getElementById('modal-success').classList.remove('hidden');
+  
+  // Close modal after 2.5 seconds
+  setTimeout(closeModal, 2500);
+  
+  // Let Formsubmit handle the actual form submission naturally
 });
 
 // ===== CALCULATOR =====
