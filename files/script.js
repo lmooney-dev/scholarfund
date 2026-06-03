@@ -79,7 +79,11 @@ function openModal(type) {
   document.getElementById('signup-form').reset();
   document.getElementById('signup-type').value = type;
 
-  document.getElementById('modal').classList.remove('hidden');
+  // Show the modal overlay by removing hidden class
+  const modalOverlay = document.getElementById('modal');
+  if (modalOverlay) {
+    modalOverlay.classList.remove('hidden');
+  }
   document.body.style.overflow = 'hidden';
 
   // Re-render Lucide icons after DOM updates
@@ -87,7 +91,10 @@ function openModal(type) {
 }
 
 function closeModal() {
-  document.getElementById('modal').classList.add('hidden');
+  const modalOverlay = document.getElementById('modal');
+  if (modalOverlay) {
+    modalOverlay.classList.add('hidden');
+  }
   document.body.style.overflow = '';
 }
 
