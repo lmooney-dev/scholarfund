@@ -229,15 +229,26 @@ function renderFAQs() {
 }
 
 // ===== INIT =====
-updateCounters();
-updateStudentCalc();
-updateInvestorCalc();
-renderFAQs();
+// Wait for DOM to be ready before initializing
+function initializeApp() {
+  updateCounters();
+  updateStudentCalc();
+  updateInvestorCalc();
+  renderFAQs();
 
-// Render all Lucide icons on the page
-if (window.lucide) lucide.createIcons();
+  // Render all Lucide icons on the page
+  if (window.lucide) lucide.createIcons();
 
-// Escape closes modal
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeModal();
-});
+  // Escape closes modal
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+  });
+}
+
+// Run initialization when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeApp);
+} else {
+  // DOM is already loaded (script ran after page load)
+  initializeApp();
+}
