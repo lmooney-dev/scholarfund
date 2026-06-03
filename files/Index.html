@@ -672,14 +672,14 @@
       <div class="modal-icon" id="modal-icon"><i data-lucide="graduation-cap"></i></div>
       <h3 class="modal-title" id="modal-title">You're almost in</h3>
       <p class="modal-subtitle" id="modal-subtitle">Drop your details and you'll hear from us when we launch.</p>
-      <!-- Formspree form — replace YOUR_FORM_ID with your actual ID -->
-      <form id="signup-form" action="https://formspree.io/f/xeewjody" method="POST">
-        <input type="hidden" name="signup_type" id="signup-type">
+      <form id="signup-form" action="https://formsubmit.co/lamdesign@me.com" method="POST">
+        <input type="hidden" name="signup_type" id="signup-type" value="student">
+        <input type="hidden" name="_subject" value="New ScholarFund waitlist signup">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
         <input type="text" name="name" placeholder="Your name" required>
         <input type="email" name="email" placeholder="Email address" required>
         <input type="text" name="context" id="signup-context" placeholder="School & major (optional)">
-        <input type="hidden" name="_subject" value="New ScholarFund waitlist signup">
-        <input type="hidden" name="_gotcha" style="display:none">
         <button type="submit" class="btn btn-dark btn-full">
           I'm in — add me to the list <span class="arrow">→</span>
         </button>
