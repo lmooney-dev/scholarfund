@@ -3,7 +3,7 @@
    ======================================== */
 
 // ===== WAITLIST COUNTERS =====
-// In production this would pull from your backend/Formspree analytics.
+// In production this would pull from your backend/Formsubmit analytics.
 // For now: starting display numbers + localStorage increments on each signup.
 const STORAGE_KEY = 'scholarfund_signups';
 const STARTING = { student: 0, parent: 0, investor: 0 };
@@ -96,7 +96,7 @@ function closeModalOnBg(e) {
   if (e.target === e.currentTarget) closeModal();
 }
 
-// ===== FORM SUBMISSION (Formspree) =====
+// ===== FORM SUBMISSION (Formsubmit) =====
 document.getElementById('signup-form').addEventListener('submit', async function(e) {
   e.preventDefault();
   const form = e.target;
@@ -106,8 +106,7 @@ document.getElementById('signup-form').addEventListener('submit', async function
   try {
     const response = await fetch(form.action, {
       method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
+      body: formData
     });
 
     if (response.ok) {
@@ -120,7 +119,7 @@ document.getElementById('signup-form').addEventListener('submit', async function
       alert('Something went wrong. Please try again.');
     }
   } catch (err) {
-    // Formspree fallback: even if fetch fails, treat as success in demo mode
+    // Formsubmit fallback: even if fetch fails, treat as success
     document.getElementById('modal-form-view').classList.add('hidden');
     document.getElementById('modal-success').classList.remove('hidden');
     incrementCounter(type);
