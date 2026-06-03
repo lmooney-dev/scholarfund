@@ -96,8 +96,10 @@ function closeModalOnBg(e) {
 }
 
 // ===== FORM SUBMISSION (Formsubmit) =====
-// Remove preventDefault to allow Formsubmit to handle the native form submission
+// Prevent default, show success state, then submit via Formsubmit
 document.getElementById('signup-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
   const type = document.getElementById('signup-type').value;
   
   // Increment counter immediately on submit
@@ -110,7 +112,10 @@ document.getElementById('signup-form').addEventListener('submit', function(e) {
   // Close modal after 2.5 seconds
   setTimeout(closeModal, 2500);
   
-  // Let Formsubmit handle the actual form submission naturally
+  // Submit to Formsubmit after brief delay
+  setTimeout(() => {
+    this.submit();
+  }, 500);
 });
 
 // ===== CALCULATOR =====
